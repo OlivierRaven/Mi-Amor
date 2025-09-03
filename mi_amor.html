@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Para mi amor, Ana Lisabeth Cruces Quiñones ❤️</title>
+  <meta name="description" content="Una página romántica llena de corazones para mi novia." />
+  <style>
+    :root{
+      --bg1:#ffe3ea; /* rosa claro */
+      --bg2:#ffd1e3; /* rosa pastel */
+      --bg3:#fff5f8; /* casi blanco */
+      --text:#4a2333; /* ciruela */
+      --accent:#e63972; /* fucsia */
+      --accent-2:#ff7aa2; /* rosa vivo */
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      color:var(--text);
+      background: radial-gradient(circle at 20% 0%, var(--bg2) 0%, var(--bg3) 40%, var(--bg1) 100%);
+      overflow-x:hidden;
+    }
+    /* Corazones flotantes */
+    .corazones{position:fixed; inset:0; pointer-events:none; z-index:0}
+    .corazon{
+      position:absolute;
+      top:100vh;
+      font-size:24px;
+      opacity:0.9;
+      animation:flotar linear forwards;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,.1));
+      will-change: transform, opacity;
+    }
+    @keyframes flotar{
+      0%{transform:translateY(0) scale(1) rotate(0deg); opacity:1}
+      100%{transform:translateY(-110vh) scale(1.6) rotate(360deg); opacity:0}
+    }
+
+    header{
+      position:relative;
+      z-index:1;
+      text-align:center;
+      padding: clamp(2rem, 6vw, 6rem) 1.5rem 2rem;
+    }
+    .titulo{
+      font-size: clamp(2.2rem, 4.5vw + 1rem, 4rem);
+      line-height:1.1;
+      margin:0 0 .5rem;
+      letter-spacing:.5px;
+    }
+    .sub{
+      margin:0 auto;
+      max-width:60ch;
+      opacity:.85;
+      font-size: clamp(1rem, 1.2vw + .6rem, 1.25rem);
+    }
+
+    .cinta{
+      display:inline-block;
+      margin-top:1.25rem;
+      background:linear-gradient(90deg, var(--accent), var(--accent-2));
+      color:white;
+      padding:.45rem .85rem;
+      border-radius:999px;
+      font-weight:600;
+      letter-spacing:.3px;
+    }
+
+    main{position:relative; z-index:1}
+    .contenedor{
+      max-width:980px;
+      margin:0 auto;
+      padding: 1rem 1.25rem 3rem;
+      display:grid;
+      gap:1.25rem;
+    }
+
+    .card{
+      background:rgba(255,255,255,.7);
+      backdrop-filter:saturate(140%) blur(6px);
+      border:1px solid rgba(255, 61, 130, .15);
+      border-radius:24px;
+      padding:clamp(1rem, 2.5vw, 1.5rem);
+      box-shadow:0 10px 30px rgba(230,57,114,.08);
+    }
+    .card h2{
+      margin:.2rem 0 0.75rem;
+      font-size: clamp(1.35rem, 2vw + .8rem, 1.8rem);
+      display:flex; align-items:center; gap:.5rem;
+    }
+    .card h2 .emoji{font-size:1.2em}
+
+    .carta{
+      font-size:1.05rem; line-height:1.7; max-width:70ch;
+    }
+
+    .lista-amor{list-style:none; padding:0; margin:0; display:grid; gap:.65rem}
+    .lista-amor li{
+      display:flex; align-items:flex-start; gap:.6rem;
+      background:linear-gradient(180deg, rgba(255,255,255,.9), rgba(255,255,255,.7));
+      border:1px dashed rgba(230,57,114,.3);
+      border-radius:16px; padding:.7rem .9rem;
+    }
+    .bala{font-size:1.1rem}
+
+    .botones{display:flex; gap:.75rem; flex-wrap:wrap; margin-top:.5rem}
+    .btn{
+      background:white; border:2px solid var(--accent); color:var(--accent);
+      padding:.6rem .9rem; border-radius:999px; font-weight:700; cursor:pointer;
+      transition:.2s transform ease, .2s box-shadow ease, .2s background ease, .2s color ease;
+    }
+    .btn:hover{transform:translateY(-2px); box-shadow:0 8px 18px rgba(230,57,114,.2)}
+    .btn.lleno{background:linear-gradient(90deg, var(--accent), var(--accent-2)); color:white; border-color:transparent}
+
+    blockquote{
+      margin:0; padding:1rem 1.2rem; border-left:6px solid var(--accent);
+      background:rgba(255,255,255,.65); border-radius:14px;
+      font-style:italic;
+    }
+
+    footer{
+      text-align:center; padding:2rem 1rem 3rem; opacity:.75; z-index:1; position:relative
+    }
+    footer small{display:block}
+
+    /* Corazones decorativos en las esquinas */
+    .decoracion{
+      position:fixed; z-index:0; pointer-events:none; opacity:.25;
+    }
+    .decoracion.arriba{top:8px; left:8px; font-size:44px}
+    .decoracion.abajo{bottom:8px; right:12px; font-size:52px}
+
+    /* Accesibilidad y modo reducido de movimiento */
+    @media (prefers-reduced-motion: reduce){
+      .corazon{animation-duration:0.01ms !important; animation-iteration-count:1 !important}
+    }
+    .galeria{
+      display:grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap:12px;
+      margin-top:.5rem;
+    }
+    .mini{
+      position:relative; overflow:hidden; border-radius:14px; background:rgba(255,255,255,.8);
+      border:1px solid rgba(230,57,114,.25); aspect-ratio:1/1; display:flex; align-items:center; justify-content:center;
+    }
+    .mini img{width:100%; height:100%; object-fit:cover; display:block}
+    .dropzone{
+      border:2px dashed var(--accent); border-radius:16px; padding:1rem; text-align:center; background:rgba(255,255,255,.6);
+    }
+    .dropzone.drag{background:rgba(255,255,255,.85)}
+  </style>
+</head>
+<body>
+  <!-- Contenedor de corazones animados -->
+  <div class="corazones" aria-hidden="true" id="corazones"></div>
+
+  <!-- Corazones decorativos fijos -->
+  <div class="decoracion arriba">❤️ 💖 💓</div>
+  <div class="decoracion abajo">💞 💘 💝</div>
+
+  <header>
+    <div class="cinta" aria-label="para siempre">Para siempre contigo</div>
+    <h1 class="titulo">Ana Lisabeth Cruces Quinones, te amo con todo mi corazón ❤️</h1>
+    <p class="sub">Esta página es para ti, Ana Lisabeth Cruces Quinones. Eres mi sonrisa de cada día, mi refugio y mi razón. Gracias por existir.</p>
+    <div class="botones" role="group" aria-label="acciones">
+      <button class="btn lleno" id="btn-corazones">¡Más corazones!</button>
+      <button class="btn" id="btn-dedicatoria">Cambiar dedicatoria</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="contenedor">
+      <article class="card">
+        <h2><span class="emoji">💌</span> Carta de amor</h2>
+        <p class="carta" id="carta">
+          Mi Ana Lisabeth, cada día a tu lado es un regalo. Cuando sonríes, el mundo se vuelve más bonito; cuando me abrazas, todo tiene sentido.
+          Prometo cuidar de ti, escucharte y elegirte hoy, mañana y siempre. Gracias por ser tú: mi mejor amiga, mi cómplice y mi hogar.
+        </p>
+      </article>
+
+      <article class="card">
+        <h2><span class="emoji">✨</span> Razones por las que te amo</h2>
+        <ul class="lista-amor">
+          <li><span class="bala">❤️</span> Tu risa ilumina mis días.
+          <li><span class="bala">💖</span> Me das paz y fuerza a la vez.
+          <li><span class="bala">💘</span> Eres bondadosa, valiente y auténtica.
+          <li><span class="bala">💝</span> Conviertes lo cotidiano en algo mágico.
+          <li><span class="bala">💞</span> Contigo aprendí lo que significa amar de verdad.
+          <li><span class="bala">💓</span> Me inspiras a ser mi mejor versión cada día.
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2><span class="emoji">💞</span> Palabras bonitas</h2>
+        <blockquote id="frase">“Eres mi lugar favorito donde la vida tiene sabor a infinito.”</blockquote>
+      </article>
+          <article class="card">
+        <h2><span class="emoji">📸</span> Nuestra galería</h2>
+        <p style="margin-top:-.25rem">Sube tus fotos favoritas para llenar esta página de recuerdos juntos. Arrastra y suelta imágenes o usa el botón.</p>
+        <div class="dropzone" id="dropzone">
+          <p><strong>Arrastra tus fotos aquí</strong> o
+            <label for="fileInput" class="btn" style="margin-left:.4rem; display:inline-block;">Seleccionar fotos</label>
+          </p>
+          <input id="fileInput" type="file" accept="image/*" multiple style="display:none" />
+        </div>
+        <div class="galeria" id="galeria">
+          <div class="mini"><span>💗</span></div>
+          <div class="mini"><span>💞</span></div>
+          <div class="mini"><span>💘</span></div>
+          <div class="mini"><span>💝</span></div>
+          <div class="mini"><span>💖</span></div>
+          <div class="mini"><span>❤️</span></div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <small>Hecho con ♥, pensando en ti.</small>
+    <small style="margin-top:.25rem">Consejo: puedes editar el texto y poner tu nombre y el de tu novia directamente en el código.</small>
+  </footer>
+
+  <script>
+    // Utilidad: crear corazones flotantes
+    const contenedor = document.getElementById('corazones');
+    function crearCorazones(cuantos = 30){
+      const emojis = ['💖','❤️','💘','💝','💓','💕','💞'];
+      for(let i=0;i<cuantos;i++){
+        const el = document.createElement('span');
+        el.className = 'corazon';
+        el.textContent = emojis[Math.floor(Math.random()*emojis.length)];
+        const tam = 16 + Math.random()*36; // 16–52px
+        el.style.left = Math.random()*100 + 'vw';
+        el.style.fontSize = tam + 'px';
+        const dur = 6 + Math.random()*7; // 6–13s
+        el.style.animationDuration = dur + 's';
+        el.style.opacity = (0.7 + Math.random()*0.3).toFixed(2);
+        contenedor.appendChild(el);
+        el.addEventListener('animationend', ()=> el.remove());
+      }
+    }
+
+    // Arranque suave
+    window.addEventListener('DOMContentLoaded', ()=>{
+      crearCorazones(40);
+    });
+
+    // Botones interactivos
+    document.getElementById('btn-corazones').addEventListener('click', ()=> crearCorazones(35));
+    document.getElementById('btn-dedicatoria').addEventListener('click', ()=>{
+      const texto = prompt('Escribe tu dedicatoria en español:', 'Eres mi todo. Gracias por existir.');
+      if(texto){
+        document.getElementById('carta').textContent = texto;
+      }
+    });
+      // Galería de fotos: previsualización desde input/drag&drop
+    const fileInput = document.getElementById('fileInput');
+    const dropzone = document.getElementById('dropzone');
+    const galeria = document.getElementById('galeria');
+
+    function agregarImagen(file){
+      if(!file || !file.type.startsWith('image/')) return;
+      const reader = new FileReader();
+      reader.onload = e => {
+        const div = document.createElement('div');
+        div.className = 'mini';
+        const img = document.createElement('img');
+        img.alt = 'Foto de nosotros';
+        img.src = e.target.result;
+        div.appendChild(img);
+        galeria.prepend(div);
+      };
+      reader.readAsDataURL(file);
+    }
+
+    fileInput?.addEventListener('change', (e)=>{
+      [...e.target.files].forEach(agregarImagen);
+      fileInput.value = '';
+    });
+
+    ;['dragenter','dragover'].forEach(evt=>{
+      dropzone.addEventListener(evt, (e)=>{ e.preventDefault(); e.stopPropagation(); dropzone.classList.add('drag'); });
+    });
+    ;['dragleave','drop'].forEach(evt=>{
+      dropzone.addEventListener(evt, (e)=>{ e.preventDefault(); e.stopPropagation(); dropzone.classList.remove('drag'); });
+    });
+    dropzone.addEventListener('drop', (e)=>{
+      const files = e.dataTransfer.files;
+      [...files].forEach(agregarImagen);
+    });
+  </script>
+</body>
+</html>
