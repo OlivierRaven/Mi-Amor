@@ -137,21 +137,32 @@
     @media (prefers-reduced-motion: reduce){
       .corazon{animation-duration:0.01ms !important; animation-iteration-count:1 !important}
     }
+
+    /* Gallery fixes */
     .galeria{
       display:grid;
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
       gap:12px;
       margin-top:.5rem;
     }
     .mini{
-      position:relative; overflow:hidden; border-radius:14px; background:rgba(255,255,255,.8);
-      border:1px solid rgba(230,57,114,.25); aspect-ratio:1/1; display:flex; align-items:center; justify-content:center;
+      position:relative;
+      overflow:hidden;
+      border-radius:16px;
+      background:rgba(255,255,255,.6);
+      border:1px solid rgba(230,57,114,.2);
+      aspect-ratio:1/1;
+      box-shadow:0 6px 12px rgba(0,0,0,.08);
     }
-    .mini img{width:100%; height:100%; object-fit:cover; display:block}
-    .dropzone{
-      border:2px dashed var(--accent); border-radius:16px; padding:1rem; text-align:center; background:rgba(255,255,255,.6);
+    .mini img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      transform:scale(1.02);
+      transition:transform .25s ease;
     }
-    .dropzone.drag{background:rgba(255,255,255,.85)}
+    .mini:hover img{transform:scale(1.06)}
   </style>
 </head>
 <body>
@@ -196,30 +207,32 @@
       <article class="card">
         <h2><span class="emoji">💞</span> Palabras bonitas</h2>
         <blockquote id="frase">“Eres mi lugar favorito donde la vida tiene sabor a infinito.”</blockquote>
+      </article>
+
       <article class="card">
-<h2>📸 Nuestra galería de amor</h2>
-<div class="galeria">
-<img src="1ca92bcb-e02e-4ba5-85ac-9c25fd37ab0e.jpg" alt="Tu y yo juntos">
-<img src="1173f475-011b-431c-a20d-c0fcee2116cb.jpg" alt="El cuidad la amor">
-<img src="3998263c-9c9c-4133-ab3a-67f872112cc3.jpg" alt="Rio con mi amor">
-<img src="eafa4049-9d0b-4d08-89b4-cc17d272cd55.jpg" alt="Un recuerdo feliz">
-<img src="IMG_0219.jpeg" alt="Bicicleta">
-<img src="IMG_0265.jpeg" alt="Cocinando cevice">
-<img src="IMG_0990.jpeg" alt="A-dam">
-<img src="IMG_0994.jpeg" alt="A-dam">
-<img src="IMG_1063.jpeg" alt="Romantico">
-<img src="IMG_1088.jpeg" alt="">
-<img src="IMG_1120.jpeg" alt="Trabajo en el Jardin">
-<img src="IMG_1205.jpeg" alt="Mallorca juntos">
-<img src="IMG_1302.jpeg" alt="Tu y gatos">
-<img src="IMG_1321.jpeg" alt="Disney magico">
-<img src="IMG_1385.jpeg" alt="">
-<img src="IMG_1422.jpeg" alt="">
-<img src="IMG_1858.PNG" alt="Nuestra bebe">
-<img src="IMG_6599.jpeg" alt="">
-<img src="IMG_7046.jpeg" alt="">
-</div>
-</article>
+        <h2>📸 Nuestra galería de amor</h2>
+        <div class="galeria">
+          <figure class="mini"><img src="1ca92bcb-e02e-4ba5-85ac-9c25fd37ab0e.jpg" alt="Tú y yo juntos" loading="lazy"></figure>
+          <figure class="mini"><img src="1173f475-011b-431c-a20d-c0fcee2116cb.jpg" alt="El cuidado del amor" loading="lazy"></figure>
+          <figure class="mini"><img src="3998263c-9c9c-4133-ab3a-67f872112cc3.jpg" alt="Río con mi amor" loading="lazy"></figure>
+          <figure class="mini"><img src="eafa4049-9d0b-4d08-89b4-cc17d272cd55.jpg" alt="Un recuerdo feliz" loading="lazy"></figure>
+          <figure class="mini"><img src="IMG_0219.jpeg" alt="Bicicleta" loading="lazy"></figure>
+          <figure class="mini"><img src="IMG_0265.jpeg" alt="Cocinando ceviche" loading="lazy"></figure>
+          <figure class="mini"><img src="IMG_0990.jpeg" alt="Ámsterdam" loading="lazy"></figure>
+          <figure class="mini"><img src="IMG_0994.jpeg" alt="Ámsterdam 2" loading="lazy"></figure>
+          <figure class="mini"><img src="IMG_1063.jpeg" alt="Romántico" loading="lazy"></figure>
+          <figure class="mini"><img src="IMG_1088.jpeg" alt="" loading="lazy"></figure>
+          <figure class="mini"><img src="IMG_1120.jpeg" alt="Trabajo en el jardín" loading="lazy"></figure>
+          <figure class="mini"><img src="IMG_1205.jpeg" alt="Mallorca juntos" loading="lazy"></figure>
+          <figure class="mini"><img src="IMG_1302.jpeg" alt="Tú y gatos" loading="lazy"></figure>
+          <figure class="mini"><img src="IMG_1321.jpeg" alt="Disney mágico" loading="lazy"></figure>
+          <figure class="mini"><img src="IMG_1385.jpeg" alt="" loading="lazy"></figure>
+          <figure class="mini"><img src="IMG_1422.jpeg" alt="" loading="lazy"></figure>
+          <figure class="mini"><img src="IMG_1858.PNG" alt="Nuestra bebé" loading="lazy"></figure>
+          <figure class="mini"><img src="IMG_6599.jpeg" alt="" loading="lazy"></figure>
+          <figure class="mini"><img src="IMG_7046.jpeg" alt="" loading="lazy"></figure>
+        </div>
+      </article>
     </section>
   </main>
 
@@ -260,41 +273,7 @@
         document.getElementById('carta').textContent = texto;
       }
     });
-      // Galería de fotos: previsualización desde input/drag&drop
-    const fileInput = document.getElementById('fileInput');
-    const dropzone = document.getElementById('dropzone');
-    const galeria = document.getElementById('galeria');
-
-    function agregarImagen(file){
-      if(!file || !file.type.startsWith('image/')) return;
-      const reader = new FileReader();
-      reader.onload = e => {
-        const div = document.createElement('div');
-        div.className = 'mini';
-        const img = document.createElement('img');
-        img.alt = 'Foto de nosotros';
-        img.src = e.target.result;
-        div.appendChild(img);
-        galeria.prepend(div);
-      };
-      reader.readAsDataURL(file);
-    }
-
-    fileInput?.addEventListener('change', (e)=>{
-      [...e.target.files].forEach(agregarImagen);
-      fileInput.value = '';
-    });
-
-    ;['dragenter','dragover'].forEach(evt=>{
-      dropzone.addEventListener(evt, (e)=>{ e.preventDefault(); e.stopPropagation(); dropzone.classList.add('drag'); });
-    });
-    ;['dragleave','drop'].forEach(evt=>{
-      dropzone.addEventListener(evt, (e)=>{ e.preventDefault(); e.stopPropagation(); dropzone.classList.remove('drag'); });
-    });
-    dropzone.addEventListener('drop', (e)=>{
-      const files = e.dataTransfer.files;
-      [...files].forEach(agregarImagen);
-    });
   </script>
 </body>
 </html>
+
