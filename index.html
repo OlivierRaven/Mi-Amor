@@ -206,7 +206,6 @@
 
   <div class="topbar">
     <nav>
-      <a href="#historia" data-i18n="nav_story"></a>
       <a href="#detalles" data-i18n="nav_details"></a>
       <a href="#galeria" data-i18n="nav_gallery"></a>
       <a href="#rsvp" data-i18n="nav_rsvp" id="nav-rsvp"></a>
@@ -225,6 +224,7 @@
     <p class="fecha" data-i18n="date_long"></p>
     <div class="countdown" id="countdown" role="timer" aria-live="off"></div>
     <p class="sub" data-i18n="hero_sub"></p>
+    <p class="sub" data-i18n="hero_note" style="margin-top:.6rem; font-style:italic"></p>
     <div class="botones" style="justify-content:center">
       <button class="btn lleno" id="btn-corazones" data-i18n="more_hearts"></button>
     </div>
@@ -232,7 +232,7 @@
 
   <main>
     <section class="contenedor">
-      <article class="card" id="historia">
+      <article class="card" id="historia" hidden>
         <h2><span class="emoji">💌</span> <span data-i18n="letter_title"></span></h2>
         <p class="carta" data-i18n="letter"></p>
       </article>
@@ -248,7 +248,7 @@
         </div>
       </article>
 
-      <article class="card">
+      <article class="card" hidden>
         <h2><span class="emoji">✨</span> <span data-i18n="reasons_title"></span></h2>
         <ul class="lista-amor">
           <li><span class="bala">❤️</span><span data-i18n="r1"></span></li>
@@ -260,7 +260,7 @@
         </ul>
       </article>
 
-      <article class="card">
+      <article class="card" hidden>
         <h2><span class="emoji">💞</span> <span data-i18n="quotes_title"></span></h2>
         <blockquote data-i18n="q1"></blockquote>
         <blockquote data-i18n="q2" style="margin-top:.6rem"></blockquote>
@@ -303,7 +303,7 @@
         nav_story:"Nuestra historia", nav_details:"Detalles", nav_gallery:"Galería", nav_rsvp:"Confirmar",
         ribbon:"¡Nos casamos!", date_long:"Sábado, 7 de noviembre de 2026",
         hero_sub:"Con todo nuestro amor te invitamos a celebrar con nosotros el día más feliz de nuestras vidas.",
-        more_hearts:"¡Más corazones!",
+        hero_note:"Una celebración pequeña e íntima, con las personas que más queremos.", more_hearts:"¡Más corazones!",
         cd:["días","horas","min","seg"], married:"¡Hoy es nuestro día! 💍",
         letter_title:"Nuestra historia",
         letter:"Mi Lisbeth, te amo tanto que no lo creerías. Contigo quiero envejecer y pasar cada minuto de esta tierra en tus brazos. Me haces el novio más feliz del mundo y te prometo que haré todo lo posible para que seas tan feliz como tú me haces a mí. Dormirme cada noche contigo en mis brazos y besarte al despertar es mi mayor sueño, y pronto será posible.",
@@ -327,7 +327,7 @@
         nav_story:"Our story", nav_details:"Details", nav_gallery:"Gallery", nav_rsvp:"RSVP",
         ribbon:"We're getting married!", date_long:"Saturday, 7 November 2026",
         hero_sub:"With all our love, we invite you to celebrate the happiest day of our lives with us.",
-        more_hearts:"More hearts!",
+        hero_note:"A small, intimate celebration with the people we love most.", more_hearts:"More hearts!",
         cd:["days","hours","min","sec"], married:"Today is our day! 💍",
         letter_title:"Our story",
         letter:"My Lisbeth, I love you more than you would believe. With you I want to grow old and spend every minute on this earth in your arms. You make me the happiest fiancé in the world, and I promise I will do everything I can to make you as happy as you make me. Falling asleep every night with you in my arms and kissing you when I wake up is my greatest dream, and soon it will come true.",
@@ -351,7 +351,7 @@
         nav_story:"Ons verhaal", nav_details:"Details", nav_gallery:"Galerij", nav_rsvp:"Aanmelden",
         ribbon:"We gaan trouwen!", date_long:"Zaterdag 7 november 2026",
         hero_sub:"Met heel veel liefde nodigen we je uit om samen met ons de mooiste dag van ons leven te vieren.",
-        more_hearts:"Meer hartjes!",
+        hero_note:"Een kleine, intieme viering met de mensen van wie we het meest houden.", more_hearts:"Meer hartjes!",
         cd:["dagen","uur","min","sec"], married:"Vandaag is onze dag! 💍",
         letter_title:"Ons verhaal",
         letter:"Mijn Lisbeth, ik hou zoveel van je dat je het niet zou geloven. Met jou wil ik oud worden en elke minuut op deze aarde in jouw armen doorbrengen. Je maakt mij de gelukkigste verloofde ter wereld en ik beloof dat ik alles zal doen om jou net zo gelukkig te maken als jij mij maakt. Elke nacht met jou in mijn armen in slaap vallen en je kussen als ik wakker word is mijn grootste droom, en die komt binnenkort uit.",
